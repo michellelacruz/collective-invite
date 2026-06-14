@@ -188,6 +188,15 @@
   .form-actions{margin-top:22px; display:flex; gap:12px; align-items:center}
   .privacy{font-size:12px; color:var(--muted); margin-top:14px}
 
+  /* alternative roster CTA at the end */
+  .alt-block{
+    max-width:520px; margin:36px auto 0; padding-top:28px;
+    border-top:1px solid var(--rule); text-align:center;
+  }
+  .alt-q{font-family:var(--serif); font-size:21px; color:var(--ink); margin-bottom:8px}
+  .alt-d{font-size:14.5px; line-height:1.55; color:var(--muted); margin:0 auto 18px; max-width:44ch}
+  #altInBtn{font-size:15px; padding:13px 26px}
+
   /* success */
   .done{display:none; text-align:center; padding:30px 10px}
   .done.show{display:block}
@@ -408,6 +417,12 @@
         <button class="btn btn--primary" id="imInBtn" style="font-size:16px; padding:15px 34px">I'm in →</button>
       </div>
       <p class="tiny">Prefer to think it over? That's okay too, this invitation will stay open.</p>
+
+      <div class="alt-block">
+        <p class="alt-q">Not what you're looking for?</p>
+        <p class="alt-d">You can also join the roster of photographers we recommend when a client reaches out for something outside our scope.</p>
+        <button class="btn" id="altInBtn">I want to be part of the alternative roster →</button>
+      </div>
     </div>
 
     <form class="form-card hidden" id="joinForm" novalidate>
@@ -486,6 +501,71 @@
       </div>
       <h2>You're on the list.</h2>
       <p class="lede" style="margin-left:auto;margin-right:auto;text-align:center">Thank you, we've got your details. You'll hear from The Headshot Club soon with your orientation invite for Headshot Day. We can't wait to have you.</p>
+    </div>
+
+    <form class="form-card hidden" id="altForm" novalidate>
+      <h3 style="font-size:22px; margin-bottom:4px">The alternative roster.</h3>
+      <p class="sub" style="margin-bottom:20px">For photographers we call on when a client needs something outside our headshot scope. Tell us about yourself and what you shoot.</p>
+
+      <div class="field">
+        <label>Full name <span class="req">*</span></label>
+        <input type="text" name="name" autocomplete="name" />
+        <div class="form-err" data-for="name">Please add your name.</div>
+      </div>
+      <div class="field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="email" autocomplete="email" />
+        <div class="form-err" data-for="email">Please add a valid email.</div>
+      </div>
+      <div class="field">
+        <label>Phone <span class="req">*</span></label>
+        <input type="tel" name="phone" autocomplete="tel" />
+        <div class="form-err" data-for="phone">Please add a phone number.</div>
+      </div>
+      <div class="field">
+        <label>Instagram or portfolio link <span class="sub">(optional)</span></label>
+        <input type="text" name="portfolio" placeholder="@yourhandle or a link" />
+      </div>
+
+      <div class="field">
+        <label>What do you shoot? <span class="req">*</span> <span class="sub">(pick all that apply)</span></label>
+        <div class="chips">
+          <label><input type="checkbox" name="skills" value="Weddings" /> Weddings</label>
+          <label><input type="checkbox" name="skills" value="Families" /> Families</label>
+          <label><input type="checkbox" name="skills" value="Babies & newborns" /> Babies &amp; newborns</label>
+          <label><input type="checkbox" name="skills" value="Maternity" /> Maternity</label>
+          <label><input type="checkbox" name="skills" value="Events & parties" /> Events &amp; parties</label>
+          <label><input type="checkbox" name="skills" value="Live concerts" /> Live concerts</label>
+          <label><input type="checkbox" name="skills" value="Conferences" /> Conferences</label>
+          <label><input type="checkbox" name="skills" value="Corporate" /> Corporate</label>
+          <label><input type="checkbox" name="skills" value="Real estate & interiors" /> Real estate &amp; interiors</label>
+          <label><input type="checkbox" name="skills" value="Products" /> Products</label>
+          <label><input type="checkbox" name="skills" value="Food" /> Food</label>
+          <label><input type="checkbox" name="skills" value="Fashion" /> Fashion</label>
+          <label><input type="checkbox" name="skills" value="Sports" /> Sports</label>
+          <label><input type="checkbox" name="skills" value="Available to travel" /> Available to travel</label>
+        </div>
+        <div class="form-err" data-for="skills">Please pick at least one.</div>
+      </div>
+
+      <div class="field">
+        <label>Additional comments <span class="sub">(optional)</span></label>
+        <textarea name="alt_notes" placeholder="Anything else you'd like us to know."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn--primary" id="altSubmitBtn" style="font-size:15px; padding:14px 30px">Send it →</button>
+        <span class="sub" id="altSendingMsg" style="display:none">Sending…</span>
+      </div>
+      <p class="privacy">Your details go straight to The Headshot Club and are used only for our recommendation roster. Nothing is shared.</p>
+    </form>
+
+    <div class="done" id="altDone">
+      <div class="check">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M4 12l5 5L20 6"/></svg>
+      </div>
+      <h2>You're on the roster.</h2>
+      <p class="lede" style="margin-left:auto;margin-right:auto;text-align:center">Thank you. We've added you to our recommendation roster. When a client reaches out for something in your wheelhouse, we'll be in touch.</p>
     </div>
   </section>
 
@@ -651,6 +731,70 @@ joinForm.addEventListener('submit', async e => {
   // Show success regardless (no-cors hides the response); the Sheet records it server-side.
   joinForm.style.display = 'none';
   document.getElementById('doneMsg').classList.add('show');
+  progFill.style.width = '100%';
+});
+
+/* ---------- alternative roster ---------- */
+const altInBtn = document.getElementById('altInBtn');
+const altForm = document.getElementById('altForm');
+altInBtn.addEventListener('click', () => {
+  acceptIntro.style.display = 'none';
+  altForm.classList.remove('hidden');
+  altForm.scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+function altVal(name){
+  const f = altForm.elements[name];
+  return f ? (f.value || '').trim() : '';
+}
+function altErr(name, on){
+  const el = altForm.querySelector('.form-err[data-for="'+name+'"]');
+  if (el) el.style.display = on ? 'block' : 'none';
+}
+
+altForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  const name = altVal('name'), email = altVal('email'), phone = altVal('phone');
+  const skills = Array.from(altForm.querySelectorAll('input[name="skills"]:checked')).map(c => c.value).join(', ');
+  let ok = true;
+  altErr('name', !name); if (!name) ok = false;
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  altErr('email', !emailOk); if (!emailOk) ok = false;
+  altErr('phone', !phone); if (!phone) ok = false;
+  altErr('skills', !skills); if (!skills) ok = false;
+  if (!ok){ altForm.querySelector('.form-err[style*="block"]')?.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+
+  const payload = {
+    form_type: 'alternative',
+    name, email, phone,
+    portfolio: altVal('portfolio'),
+    skills: skills,
+    notes: altVal('alt_notes'),
+    submitted_at: new Date().toLocaleString()
+  };
+
+  const altSubmitBtn = document.getElementById('altSubmitBtn');
+  const altSendingMsg = document.getElementById('altSendingMsg');
+  altSubmitBtn.disabled = true; altSendingMsg.style.display = 'inline';
+
+  const notConfigured = !SHEET_ENDPOINT || SHEET_ENDPOINT.indexOf('PASTE_YOUR') === 0;
+  try {
+    if (!notConfigured){
+      await fetch(SHEET_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'text/plain;charset=utf-8'},
+        body: JSON.stringify(payload)
+      });
+    } else {
+      console.warn('THC alt roster: SHEET_ENDPOINT not set — response not saved.', payload);
+    }
+  } catch (err){
+    console.warn('Submit error (response may still have been recorded):', err);
+  }
+
+  altForm.style.display = 'none';
+  document.getElementById('altDone').classList.add('show');
   progFill.style.width = '100%';
 });
 </script>
