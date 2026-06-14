@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="#A8572C" />
+<title>You're Invited — The Headshot Club</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPCEtLSBTb2xpZCB0ZXJyYWNvdHRhIHRpbGUgc28gdGhlIG1hcmsgaXMgcmVhZGFibGUgb24gbGlnaHQgQU5EIGRhcmsKICAgICAgIGJyb3dzZXIgdGFicy4gVXNpbmcgdGhlIGJyYW5kICdoYy4nIGxvY2t1cCwgbGFyZ2UgZW5vdWdoIHRvIHJlYWQgYXQKICAgICAgIDE2eDE2IHdpdGggdGhlICdjLicgY29sb3JlZCBib25lIGZvciBjb250cmFzdCBhZ2FpbnN0IHRoZSBwZXJpb2QuIC0tPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjgiIGZpbGw9IiNBODU3MkMiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjY4JSIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIgogICAgICAgIGZvbnQtc2l6ZT0iNDAiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iI0Y0RUZFNiI+aDx0c3BhbiBmaWxsPSIjMUExQTFBIj5jLjwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4K" />
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPCEtLSBTb2xpZCB0ZXJyYWNvdHRhIHRpbGUgc28gdGhlIG1hcmsgaXMgcmVhZGFibGUgb24gbGlnaHQgQU5EIGRhcmsKICAgICAgIGJyb3dzZXIgdGFicy4gVXNpbmcgdGhlIGJyYW5kICdoYy4nIGxvY2t1cCwgbGFyZ2UgZW5vdWdoIHRvIHJlYWQgYXQKICAgICAgIDE2eDE2IHdpdGggdGhlICdjLicgY29sb3JlZCBib25lIGZvciBjb250cmFzdCBhZ2FpbnN0IHRoZSBwZXJpb2QuIC0tPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjgiIGZpbGw9IiNBODU3MkMiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjY4JSIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIgogICAgICAgIGZvbnQtc2l6ZT0iNDAiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iI0Y0RUZFNiI+aDx0c3BhbiBmaWxsPSIjMUExQTFBIj5jLjwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4K" />
+<style>
+  :root{
+    --ink:#1A1A1A; --bone:#F4EFE6; --terracotta:#A8572C; --cypress:#3D5447;
+    --linen:#C9C3B5; --rule:#D3D1C7; --muted:#6B6B6B;
+    --serif:Georgia,'Times New Roman',Times,serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:var(--sans); color:var(--ink); background:var(--bone);
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+  }
+  em{font-style:italic; color:var(--terracotta)}
+
+  /* ---------- deck shell ---------- */
+  .deck{min-height:100dvh; display:flex; flex-direction:column}
+  .slide{
+    display:none; flex:1 1 auto; padding:clamp(28px,6vw,72px) clamp(22px,6vw,64px) 132px;
+    max-width:980px; margin:0 auto; width:100%;
+    animation:fade .5s ease;
+  }
+  .slide.active{display:flex; flex-direction:column; justify-content:center}
+  @keyframes fade{from{opacity:0; transform:translateY(10px)}to{opacity:1; transform:none}}
+
+  .kicker{
+    font-size:12px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--terracotta); font-weight:600; margin-bottom:18px;
+  }
+  h1{font-family:var(--serif); font-weight:400; font-size:clamp(34px,6.5vw,60px); line-height:1.05; letter-spacing:-.01em}
+  h2{font-family:var(--serif); font-weight:400; font-size:clamp(26px,4.6vw,42px); line-height:1.1; margin-bottom:8px}
+  h3{font-family:var(--serif); font-weight:400; font-size:20px; margin-bottom:6px}
+  .lede{font-size:clamp(16px,2.1vw,20px); color:#333; max-width:60ch; margin-top:18px}
+  p{font-size:16px; color:#333}
+  .sub{color:var(--muted); font-size:15px}
+
+  /* ---------- progress / nav ---------- */
+  .topbar{
+    position:fixed; top:0; left:0; right:0; height:4px; background:transparent; z-index:30;
+  }
+  .topbar .fill{height:100%; background:var(--terracotta); width:0; transition:width .4s ease}
+  .brandbar{
+    position:fixed; top:14px; left:0; right:0; z-index:25; display:flex; justify-content:center;
+    pointer-events:none;
+  }
+  .brand-logo{
+    height:78px; width:auto; display:block;
+    background:rgba(244,239,230,.82); padding:12px 28px; border-radius:50px;
+    backdrop-filter:blur(3px);
+  }
+  .navbar{
+    position:fixed; bottom:0; left:0; right:0; z-index:30;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding:16px clamp(18px,5vw,40px); padding-bottom:calc(16px + env(safe-area-inset-bottom));
+    background:linear-gradient(transparent, var(--bone) 38%);
+  }
+  .dots{display:flex; gap:7px; flex-wrap:wrap; justify-content:center; flex:1}
+  .dot{width:7px; height:7px; border-radius:50%; background:var(--rule); border:none; cursor:pointer; padding:0; transition:all .25s}
+  .dot.on{background:var(--ink); transform:scale(1.35)}
+  .btn{
+    font-family:var(--sans); font-size:14px; font-weight:600; letter-spacing:.02em;
+    padding:11px 22px; border:1px solid var(--ink); background:transparent; color:var(--ink);
+    border-radius:40px; cursor:pointer; transition:all .2s; white-space:nowrap;
+  }
+  .btn:hover{background:var(--ink); color:var(--bone)}
+  .btn--primary{background:var(--terracotta); border-color:var(--terracotta); color:#fff}
+  .btn--primary:hover{background:var(--ink); border-color:var(--ink)}
+  .btn:disabled{opacity:.35; cursor:default}
+  .btn--ghost{border-color:var(--rule); color:var(--muted)}
+  .btn--ghost:hover{background:transparent; color:var(--ink); border-color:var(--ink)}
+
+  /* ---------- cover ---------- */
+  .cover{text-align:center; align-items:center}
+  .cover .seal-mark{height:88px; width:auto; display:block; margin:0 auto 26px;}
+  .cover h1 em{display:block}
+  .cover .lede{margin-left:auto; margin-right:auto; text-align:center}
+
+  /* ---------- two-column provide / bring ---------- */
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:30px}
+  .panel{border:1px solid var(--rule); border-radius:var(--radius); padding:24px; background:#fbf8f2}
+  .panel--accent{background:var(--cypress); border-color:var(--cypress); color:#f3efe6}
+  .panel--accent h3, .panel--accent .panel-tag{color:#fff}
+  .panel-tag{font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--terracotta); font-weight:700; margin-bottom:14px; display:block}
+  .panel ul{list-style:none; display:flex; flex-direction:column; gap:22px}
+  .panel li{display:flex; gap:13px; font-size:15px; line-height:1.65}
+  .panel li .sub{display:block; margin-top:7px; line-height:1.55}
+  .panel li .ic{flex:none; width:18px; height:18px; margin-top:4px; color:var(--terracotta)}
+  .panel--accent li .ic{color:#dcc9a0}
+  /* slide 2 lead panels — bigger titles, justified body, more room */
+  .panel--lead{padding:30px 28px}
+  .panel--lead .panel-tag{
+    font-family:var(--serif); font-size:21px; font-weight:400; letter-spacing:0;
+    text-transform:none; color:var(--terracotta); margin-bottom:12px;
+  }
+  .panel--lead p{font-size:15.5px; line-height:1.62; text-align:justify; hyphens:none}
+
+  /* ---------- payouts ---------- */
+  .pay-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:24px}
+  .pay-card{
+    border:1px solid var(--rule); border-radius:var(--radius); padding:20px; background:#fbf8f2;
+    position:relative; overflow:hidden;
+  }
+  .pay-card h3{margin-bottom:2px}
+  .pay-card .full{font-size:13px; color:var(--muted); margin-bottom:14px}
+  .pay-card .full b{color:var(--ink); font-weight:600}
+  .split{display:flex; gap:10px}
+  .split .cell{flex:1; border-radius:var(--radius); padding:12px 10px; text-align:center}
+  .cell--you{background:var(--terracotta); color:#fff}
+  .cell--studio{background:#efe9dd; color:var(--ink)}
+  .cell .amt{font-family:var(--serif); font-size:26px; line-height:1; display:block; margin-bottom:4px}
+  .cell .tag{font-size:10px; letter-spacing:.14em; text-transform:uppercase; opacity:.9}
+  .pay-note{margin-top:18px; font-size:14px; color:var(--muted); border-left:2px solid var(--terracotta); padding-left:14px}
+  .pay-note b{color:var(--ink)}
+
+  /* ---------- steps / phases ---------- */
+  .steps{display:flex; flex-direction:column; gap:14px; margin-top:24px}
+  .step{display:flex; gap:16px; align-items:flex-start; border:1px solid var(--rule); border-radius:var(--radius); padding:18px 20px; background:#fbf8f2}
+  .step .num{flex:none; width:34px; height:34px; border-radius:50%; background:var(--ink); color:var(--bone); font-family:var(--serif); font-size:17px; display:flex; align-items:center; justify-content:center}
+  .step .num--alt{background:var(--terracotta)}
+  .step h3{font-size:18px}
+  .step p{font-size:14.5px; color:#444; margin-top:3px}
+  .phase-flag{display:inline-block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--cypress); margin-bottom:2px}
+
+  /* ---------- orientation ---------- */
+  .ori-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:26px; margin-top:24px; align-items:start}
+  .ori-list{display:flex; flex-direction:column; gap:13px}
+  .ori-list li{list-style:none; display:flex; gap:11px; font-size:15px}
+  .ori-list .ic{flex:none; width:20px; height:20px; color:var(--terracotta); margin-top:1px}
+  .cal{border:1px solid var(--rule); border-radius:var(--radius); padding:16px; background:#fbf8f2}
+  .cal .cal-h{text-align:center; font-family:var(--serif); font-size:17px; margin-bottom:10px}
+  .cal table{width:100%; border-collapse:collapse}
+  .cal th{font-size:10px; color:var(--muted); font-weight:600; padding:4px 0; text-transform:uppercase; letter-spacing:.05em}
+  .cal td{text-align:center; font-size:13px; padding:6px 0; color:#444}
+  .cal td.hl{position:relative}
+  .cal td.hl span{display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; background:var(--terracotta); color:#fff; border-radius:50%; font-weight:700}
+  .cal-cap{text-align:center; font-size:12px; color:var(--muted); margin-top:10px}
+  .where{
+    grid-column:1 / -1; display:flex; gap:11px; align-items:flex-start;
+    border:1px solid var(--rule); border-left:3px solid var(--terracotta);
+    border-radius:var(--radius); padding:16px 18px; background:#fbf8f2; font-size:14.5px; line-height:1.5;
+  }
+  .where .ic{flex:none; width:20px; height:20px; color:var(--terracotta); margin-top:1px}
+  .where b{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--terracotta)}
+  .where .addr-line{color:var(--muted)}
+
+  /* ---------- accept / form ---------- */
+  .accept-wrap{text-align:center; align-items:center}
+  .form-card{
+    width:100%; max-width:620px; margin:26px auto 0; text-align:left;
+    border:1px solid var(--rule); border-radius:var(--radius); padding:clamp(20px,4vw,32px); background:#fbf8f2;
+  }
+  .form-card.hidden{display:none}
+  .field{margin-bottom:16px}
+  .field label{display:block; font-size:13px; font-weight:600; margin-bottom:6px; letter-spacing:.01em}
+  .field .req{color:var(--terracotta)}
+  .field input[type=text], .field input[type=email], .field input[type=tel], .field input[type=date], .field textarea{
+    width:100%; font-family:var(--sans); font-size:15px; padding:11px 13px;
+    border:1px solid var(--rule); border-radius:var(--radius); background:#fff; color:var(--ink);
+  }
+  .field input:focus, .field textarea:focus{outline:none; border-color:var(--terracotta)}
+  .field textarea{min-height:78px; resize:vertical}
+  .choice{display:flex; gap:10px; flex-wrap:wrap}
+  .choice label{
+    flex:1; min-width:140px; display:flex; align-items:center; gap:9px; cursor:pointer;
+    border:1px solid var(--rule); border-radius:var(--radius); padding:11px 13px; background:#fff; font-weight:500; font-size:14px;
+  }
+  .choice input{accent-color:var(--terracotta)}
+  .choice label:has(input:checked){border-color:var(--terracotta); background:#fbf2ea}
+  .chips{display:flex; gap:8px; flex-wrap:wrap}
+  .chips label{cursor:pointer; border:1px solid var(--rule); border-radius:40px; padding:8px 15px; font-size:13.5px; background:#fff}
+  .chips input{display:none}
+  .chips label:has(input:checked){background:var(--cypress); color:#fff; border-color:var(--cypress)}
+  .alt-date{display:none; margin-top:12px}
+  .alt-date.show{display:block}
+  .form-err{color:#9a3324; font-size:13.5px; margin-top:4px; display:none}
+  .form-actions{margin-top:22px; display:flex; gap:12px; align-items:center}
+  .privacy{font-size:12px; color:var(--muted); margin-top:14px}
+
+  /* success */
+  .done{display:none; text-align:center; padding:30px 10px}
+  .done.show{display:block}
+  .done .check{width:64px; height:64px; border-radius:50%; background:var(--cypress); color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 18px; font-size:30px}
+
+  /* misc */
+  .tiny{font-size:12.5px; color:var(--muted); margin-top:14px}
+  .config-warn{display:none; background:#fbe9d9; border:1px solid var(--terracotta); color:#7a3d18; font-size:13px; padding:10px 14px; border-radius:var(--radius); margin-top:14px}
+
+  @media (max-width:720px){
+    .cols, .pay-grid, .ori-grid{grid-template-columns:1fr}
+    .slide{padding-top:124px; padding-bottom:122px}
+    .navbar .dots{display:none}
+    .cell .amt{font-size:23px}
+  }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="fill" id="progFill"></div></div>
+<div class="brandbar"><img class="brand-logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMDgwIDI2NS45Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuNS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMTQxKSAgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5zdDAgewogICAgICAgIGZpbGw6ICNhODU3MmM7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxnPgogICAgPHBhdGggZD0iTTM0NC40OCw5NS4zaC01Ljgzdi0zLjg1aDUuODN2LTExLjg3aDYuNjV2MTEuODdoMTIuNDV2My44NWgtMTIuNDV2MjQuMjhjMCwzLjI0LjMxLDUuMzEuOTQsNi4yMi42Mi45MSwxLjc3LDEuMzcsMy40NSwxLjM3czIuOTktLjUxLDMuNzgtMS41M2MuNzktMS4wMiwxLjIxLTIuNjcsMS4yNi00Ljk1aDVjLS4xOSwzLjQ4LTEuMTQsNi4wMi0yLjg0LDcuNjItMS43LDEuNjEtNC4yOSwyLjQxLTcuNzcsMi40MS0zLjgxLDAtNi41MS0uODQtOC4wOS0yLjU0LTEuNTgtMS42OS0yLjM3LTQuNTYtMi4zNy04LjYxdi0yNC4yOFoiLz4KICAgIDxwYXRoIGQ9Ik0zNjkuMTUsMTI5LjY4di0zLjgxaDUuOTd2LTQ4LjM0aC02LjMzdi0zLjgxaDEyLjk1djI0LjUzYzEuMjItMi41OSwyLjgxLTQuNTQsNC43Ny01Ljg2LDEuOTUtMS4zMiw0LjIzLTEuOTgsNi44Mi0xLjk4LDQuMjIsMCw3LjMyLDEuMjEsOS4zMiwzLjYzczIuOTksNi4yLDIuOTksMTEuMzN2MjAuNWg1Ljl2My44MWgtMTguMjd2LTMuODFoNS43MnYtMTguNDJjMC00LjY4LS41Ny03Ljg3LTEuNzEtOS41OXMtMy4xNy0yLjU3LTYuMS0yLjU3LTUuNDEsMS4xMi03LjAxLDMuMzUtMi40MSw1LjQ4LTIuNDEsOS43NXYxNy40OGg1Ljc1djMuODFoLTE4LjM0WiIvPgogICAgPHBhdGggZD0iTTQ1My41LDExMS4yN2gtMjguNTJ2LjI5YzAsNS4xNi45Nyw5LjA1LDIuOTEsMTEuNjcsMS45NCwyLjYzLDQuODEsMy45NCw4LjYsMy45NCwyLjksMCw1LjI4LS43Niw3LjE0LTIuMjgsMS44Ni0xLjUyLDMuMTYtMy43OCwzLjktNi43OGg1LjMyYy0xLjA2LDQuMi0zLDcuMzUtNS44NCw5LjQ2cy02LjU4LDMuMTYtMTEuMiwzLjE2Yy01LjU5LDAtMTAuMDgtMS44NC0xMy40Ny01LjUyLTMuMzktMy42OC01LjA5LTguNTctNS4wOS0xNC42NnMxLjY3LTEwLjkxLDUtMTQuNmMzLjMzLTMuNjksNy43MS01LjU0LDEzLjEzLTUuNTQsNS43OCwwLDEwLjIxLDEuNzgsMTMuMzEsNS4zNCwzLjA5LDMuNTYsNC43LDguNzMsNC44MiwxNS41MlpNNDQ1LjY5LDEwNy40NmMtLjE0LTQuNDYtMS4wOS03LjgyLTIuODItMTAuMDlzLTQuMjQtMy40LTcuNS0zLjRjLTMuMDQsMC01LjQ0LDEuMTQtNy4xOSwzLjQycy0yLjgyLDUuNjQtMy4yLDEwLjA3aDIwLjcyWiIvPgogICAgPHBhdGggZD0iTTQ4My42LDEyOS42OHYtMy44MWg1Ljk3di00OC4zNGgtNi4zM3YtMy44MWgxMi45NXYyNC41M2MxLjIyLTIuNTksMi44MS00LjU0LDQuNzctNS44NiwxLjk1LTEuMzIsNC4yMy0xLjk4LDYuODItMS45OCw0LjIyLDAsNy4zMiwxLjIxLDkuMzIsMy42M3MyLjk5LDYuMiwyLjk5LDExLjMzdjIwLjVoNS45djMuODFoLTE4LjI3di0zLjgxaDUuNzJ2LTE4LjQyYzAtNC42OC0uNTctNy44Ny0xLjcxLTkuNTlzLTMuMTctMi41Ny02LjEtMi41Ny01LjQxLDEuMTItNy4wMSwzLjM1LTIuNDEsNS40OC0yLjQxLDkuNzV2MTcuNDhoNS43NXYzLjgxaC0xOC4zNFoiLz4KICAgIDxwYXRoIGQ9Ik01NjcuOTUsMTExLjI3aC0yOC41MnYuMjljMCw1LjE2Ljk3LDkuMDUsMi45MSwxMS42NywxLjk0LDIuNjMsNC44MSwzLjk0LDguNiwzLjk0LDIuOSwwLDUuMjgtLjc2LDcuMTQtMi4yOCwxLjg2LTEuNTIsMy4xNi0zLjc4LDMuOS02Ljc4aDUuMzJjLTEuMDYsNC4yLTMsNy4zNS01Ljg0LDkuNDZzLTYuNTgsMy4xNi0xMS4yLDMuMTZjLTUuNTksMC0xMC4wOC0xLjg0LTEzLjQ3LTUuNTItMy4zOS0zLjY4LTUuMDktOC41Ny01LjA5LTE0LjY2czEuNjctMTAuOTEsNS0xNC42YzMuMzMtMy42OSw3LjcxLTUuNTQsMTMuMTMtNS41NCw1Ljc4LDAsMTAuMjEsMS43OCwxMy4zMSw1LjM0LDMuMDksMy41Niw0LjcsOC43Myw0LjgyLDE1LjUyWk01NjAuMTQsMTA3LjQ2Yy0uMTQtNC40Ni0xLjA5LTcuODItMi44Mi0xMC4wOXMtNC4yNC0zLjQtNy41LTMuNGMtMy4wNCwwLTUuNDQsMS4xNC03LjE5LDMuNDJzLTIuODIsNS42NC0zLjIsMTAuMDdoMjAuNzJaIi8+CiAgICA8cGF0aCBkPSJNNjA3LjU0LDEwNS44djIwLjA3aDUuOXYzLjgxaC0xMi41MnYtNC4xNGMtMS40NiwxLjc3LTMuMTUsMy4wOC01LjA3LDMuOTItMS45Mi44NC00LjE2LDEuMjYtNi43MywxLjI2LTQuMjQsMC03LjYxLTEuMTMtMTAuMTEtMy4zOC0yLjQ5LTIuMjUtMy43NC01LjMtMy43NC05LjE0czEuNDMtNy4wMyw0LjI4LTkuMjFjMi44NS0yLjE4LDYuODgtMy4yNywxMi4wOC0zLjI3aDkuMjh2LTIuNjNjMC0yLjktLjg4LTUuMTUtMi42NC02Ljc0LTEuNzYtMS41OS00LjI0LTIuMzktNy40My0yLjM5LTIuNjQsMC00Ljc0LjYtNi4yOSwxLjgtMS41NiwxLjItMi41MywyLjk3LTIuOTEsNS4zMmgtMy40MnYtNy43M2MyLjMtLjk4LDQuNTQtMS43Miw2LjcxLTIuMjEsMi4xNy0uNDksNC4yOS0uNzQsNi4zNS0uNzQsNS4zLDAsOS4zMywxLjMxLDEyLjEsMy45NCwyLjc3LDIuNjIsNC4xNSw2LjQ0LDQuMTUsMTEuNDZaTTYwMC45MywxMTcuNjd2LTguMDloLTguNTJjLTMuMjksMC01LjczLjcxLTcuMzQsMi4xMi0xLjYxLDEuNDItMi40MSwzLjU4LTIuNDEsNi41MSwwLDIuNjYuODEsNC43NywyLjQ1LDYuMzMsMS42MywxLjU2LDMuODQsMi4zNCw2LjYyLDIuMzRzNC45OC0uODUsNi42Ny0yLjU1LDIuNTQtMy45MiwyLjU0LTYuNjVaIi8+CiAgICA8cGF0aCBkPSJNNjU0LjIsMTI1Ljg3aDYuMzN2My44MWgtMTIuOTV2LTUuOTdjLTEuMjksMi40LTIuOTQsNC4xNy00Ljk0LDUuMzEtMiwxLjE0LTQuNDgsMS43MS03LjQzLDEuNzEtNC43LDAtOC41NC0xLjg2LTExLjUzLTUuNTktMi45OS0zLjczLTQuNDgtOC41OS00LjQ4LTE0LjU4czEuNDktMTAuODUsNC40Ni0xNC41N2MyLjk3LTMuNzIsNi44Mi01LjU4LDExLjU1LTUuNTgsMi45NSwwLDUuNDMuNTcsNy40MywxLjcxLDIsMS4xNCwzLjY1LDIuOTEsNC45NCw1LjN2LTE5Ljg5aC02LjI2di0zLjgxaDEyLjg4djUyLjE1Wk02NDcuNTgsMTEyLjQ2di0zLjc4YzAtNC41OC0uODgtOC4wOC0yLjY0LTEwLjUtMS43Ni0yLjQyLTQuMzItMy42My03LjY4LTMuNjNzLTUuOTgsMS4zNC03LjcyLDQuMDNjLTEuNzQsMi42OS0yLjYxLDYuNjgtMi42MSwxMS45OHMuODcsOS4yNywyLjYxLDExLjk4LDQuMzEsNC4wNiw3LjcyLDQuMDYsNS45Mi0xLjIsNy42OC0zLjYxYzEuNzYtMi40MSwyLjY0LTUuOTIsMi42NC0xMC41MloiLz4KICAgIDxwYXRoIGQ9Ik02NjYuODIsMTI3LjU2di04LjkyaDMuODFjLjEsMi44NS45OSw0Ljk5LDIuNjgsNi40LDEuNjksMS40Miw0LjE5LDIuMTIsNy41LDIuMTIsMi45NywwLDUuMjQtLjU2LDYuOC0xLjY3LDEuNTYtMS4xMiwyLjM0LTIuNzQsMi4zNC00Ljg3LDAtMS42OC0uNTctMy4wMy0xLjcxLTQuMDYtMS4xNC0xLjAzLTMuNTQtMi4xMy03LjIxLTMuMzFsLTQuNzgtMS42MmMtMy4yOS0xLjA1LTUuNjctMi4zNy03LjE0LTMuOTYtMS40Ny0xLjU4LTIuMjEtMy42LTIuMjEtNi4wNCwwLTMuNSwxLjI4LTYuMjUsMy44NS04LjI0LDIuNTctMS45OSw2LjExLTIuOTgsMTAuNjUtMi45OCwyLjAxLDAsNC4xNC4yNiw2LjM3Ljc5czQuNTMsMS4yOSw2LjkxLDIuM3Y4LjM1aC0zLjgxYy0uMS0yLjQ3LS45Ni00LjQtMi41OS01Ljc5LTEuNjMtMS4zOS0zLjg1LTIuMDktNi42NS0yLjA5cy00Ljg5LjQ5LTYuMzEsMS40OGMtMS40My45OC0yLjE0LDIuNDYtMi4xNCw0LjQyLDAsMS42MS41NCwyLjksMS42MiwzLjg3LDEuMDguOTcsMy4yNCwxLjk2LDYuNDcsMi45N2w1LjI1LDEuNjJjMy42MiwxLjEzLDYuMjMsMi41NCw3LjgyLDQuMjNzMi4zOSwzLjg3LDIuMzksNi41M2MwLDMuNjItMS4zOSw2LjQ3LTQuMTYsOC41NC0yLjc3LDIuMDctNi41OSwzLjExLTExLjQ2LDMuMTEtMi40NywwLTQuODgtLjI2LTcuMjMtLjc5LTIuMzUtLjUzLTQuNy0xLjMyLTcuMDUtMi4zN1oiLz4KICAgIDxwYXRoIGQ9Ik03MDMuNTEsMTI5LjY4di0zLjgxaDUuOTd2LTQ4LjM0aC02LjMzdi0zLjgxaDEyLjk1djI0LjUzYzEuMjItMi41OSwyLjgxLTQuNTQsNC43Ny01Ljg2LDEuOTUtMS4zMiw0LjIzLTEuOTgsNi44Mi0xLjk4LDQuMjIsMCw3LjMyLDEuMjEsOS4zMiwzLjYzczIuOTksNi4yLDIuOTksMTEuMzN2MjAuNWg1Ljl2My44MWgtMTguMjd2LTMuODFoNS43MnYtMTguNDJjMC00LjY4LS41Ny03Ljg3LTEuNzEtOS41OXMtMy4xNy0yLjU3LTYuMS0yLjU3LTUuNDEsMS4xMi03LjAxLDMuMzUtMi40MSw1LjQ4LTIuNDEsOS43NXYxNy40OGg1Ljc1djMuODFoLTE4LjM0WiIvPgogICAgPHBhdGggZD0iTTc3MC4wOCwxMzAuNzNjLTUuNTYsMC0xMC4wNC0xLjg0LTEzLjQyLTUuNTItMy4zOC0zLjY4LTUuMDctOC41Ny01LjA3LTE0LjY2czEuNjgtMTAuOTcsNS4wNS0xNC42NGMzLjM3LTMuNjcsNy44NS01LjUsMTMuNDMtNS41czEwLjA2LDEuODMsMTMuNDMsNS41LDUuMDUsOC41NSw1LjA1LDE0LjY0LTEuNjgsMTAuOTgtNS4wNSwxNC42NmMtMy4zNywzLjY4LTcuODUsNS41Mi0xMy40Myw1LjUyWk03NzAuMDgsMTI3LjE3YzMuNTUsMCw2LjIzLTEuNCw4LjA0LTQuMjEsMS44MS0yLjgxLDIuNzItNi45NCwyLjcyLTEyLjQxcy0uOTEtOS42LTIuNzItMTIuMzljLTEuODEtMi43OS00LjQ5LTQuMTktOC4wNC00LjE5cy02LjIzLDEuNC04LjA0LDQuMTljLTEuODEsMi43OS0yLjcyLDYuOTItMi43MiwxMi4zOXMuOTEsOS42LDIuNzMsMTIuNDFjMS44MiwyLjgxLDQuNSw0LjIxLDguMDIsNC4yMVoiLz4KICAgIDxwYXRoIGQ9Ik04MDAuMjMsOTUuM2gtNS44M3YtMy44NWg1Ljgzdi0xMS44N2g2LjY1djExLjg3aDEyLjQ1djMuODVoLTEyLjQ1djI0LjI4YzAsMy4yNC4zMSw1LjMxLjk0LDYuMjIuNjIuOTEsMS43NywxLjM3LDMuNDUsMS4zN3MyLjk5LS41MSwzLjc4LTEuNTNjLjc5LTEuMDIsMS4yMS0yLjY3LDEuMjYtNC45NWg1Yy0uMTksMy40OC0xLjE0LDYuMDItMi44NCw3LjYyLTEuNywxLjYxLTQuMjksMi40MS03Ljc3LDIuNDEtMy44MSwwLTYuNTEtLjg0LTguMDktMi41NC0xLjU4LTEuNjktMi4zNy00LjU2LTIuMzctOC42MXYtMjQuMjhaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNODgxLjY5LDExOC4yMWMtMS43Myw0LjA4LTQuMTMsNy4xOC03LjIxLDkuMzItMy4wOCwyLjEzLTYuNzMsMy4yLTEwLjk1LDMuMi01LjU2LDAtOS42OC0xLjgzLTEyLjM0LTUuNS0xLjg1LTIuNTYtMi43Ny01LjY5LTIuNzctOS4zOSwwLTEuNjUuMTgtMy40Mi41NC01LjI5LDEuMi02LjExLDMuODQtMTEsNy45My0xNC42Niw0LjA5LTMuNjYsOC45MS01LjQ5LDE0LjQ4LTUuNDksMi40MiwwLDQuNzguMjgsNy4wNy44NSwyLjI5LjU2LDQuNTMsMS40Miw2LjcxLDIuNTdsLTEuODcsOS43OGgtMy44NXYtLjk0YzAtMi44OC0uNjItNS4wMS0xLjg3LTYuNC0xLjM5LTEuNTQtMy42Ni0yLjMtNi44LTIuMy0zLjU3LDAtNi41NCwxLjM5LTguOSw0LjE1LTIuMzYsMi43Ny00LjA4LDYuOTEtNS4xNiwxMi40My0uNDgsMi41Mi0uNzIsNC43Ni0uNzIsNi43MywwLDIuMy4zNCw0LjIxLDEuMDEsNS43MiwxLjI3LDIuNzgsMy43MSw0LjE3LDcuMyw0LjE3LDIuODUsMCw1LjI3LS43NCw3LjI3LTIuMjNzMy42LTMuNzMsNC44Mi02LjczaDUuMzJaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNODk2Ljk0LDEyNS44N2g2LjI2bC0uNzIsMy44MWgtMTIuODhsMTAuMTQtNTIuMTVoLTYuMzdsLjcyLTMuODFoMTIuOThsLTEwLjE0LDUyLjE1WiIvPgogICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTk0NS43NSw5MS40NWg2LjYybC02LjY5LDM0LjQyaDYuMjZsLS43MiwzLjgxaC0xMi44OGwxLjMtNi43NmMtMS43MywyLjU0LTMuNjksNC40OC01Ljg4LDUuODEtMi4xOSwxLjMzLTQuNTcsMi03LjE0LDItNC4yNSwwLTcuMTMtMS4yMS04LjY3LTMuNjMtLjk0LTEuNDQtMS40LTMuMzktMS40LTUuODYsMC0xLjYxLjItMy40My42MS01LjQ3bDMuOTYtMjAuNDdoLTUuOTdsLjc1LTMuODVoMTIuNjJsLTQuMzIsMjIuMjZjLS40OCwyLjQ3LS43Miw0LjUyLS43Miw2LjE1LDAsMS40Ni4xOSwyLjYuNTgsMy40Mi43OSwxLjczLDIuNjUsMi41OSw1LjU4LDIuNTksMy4wNywwLDUuNjMtMS4xMyw3LjY4LTMuMzgsMi4wNS0yLjI1LDMuNDgtNS41Myw0LjMtOS44Mmw0LjE0LTIxLjIyWiIvPgogICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTk3MC44Miw3Ny41M2gtNi4zN2wuNzYtMy44MWgxMi45OGwtNC42LDIzLjdjMS43NS0yLjQsMy43NC00LjE3LDUuOTctNS4zczQuODItMS43MSw3Ljc3LTEuNzFjNC43LDAsOC4xOCwxLjg2LDEwLjQzLDUuNTgsMS40OSwyLjQ1LDIuMjMsNS4zOCwyLjIzLDguODEsMCwxLjgtLjIsMy43Mi0uNjEsNS43NS0xLjE3LDUuOTktMy42MSwxMC44Ni03LjMsMTQuNTgtMy42OSwzLjczLTcuODksNS41OS0xMi41OSw1LjU5LTIuOTUsMC01LjMyLS41Ny03LjEtMS43MS0xLjc5LTEuMTQtMy4wOS0yLjkxLTMuOS01LjMxbC0xLjE1LDUuOTdoLTYuNjJsMTAuMTEtNTIuMTVaTTk3MC42OCwxMTIuNDZjLS4zOCwxLjktLjU4LDMuNi0uNTgsNS4xMSwwLDIuMTguMzgsMy45OSwxLjE1LDUuNDMsMS4yOSwyLjQsMy42MiwzLjYsNi45OCwzLjZzNi4yLTEuMzUsOC40Ny00LjA2LDMuOTEtNi43LDQuOTUtMTEuOThjLjQ4LTIuNDIuNzItNC41OC43Mi02LjQ4LDAtMi4yLS4zNC00LjA0LTEuMDEtNS41LTEuMi0yLjY4LTMuNS00LjAzLTYuOTEtNC4wM3MtNi4xNSwxLjIxLTguMzgsMy42M2MtMi4yMywyLjQyLTMuNzksNS45Mi00LjY4LDEwLjVsLS43MiwzLjc4WiIvPgogICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwMTIuMzQsMTI5LjM0Yy0uNzMtLjkyLS45Ny0yLjA2LS43LTMuNC4yNi0xLjM0Ljk0LTIuNDgsMi4wMy0zLjQyczIuMzItMS40LDMuNjktMS40LDIuMzYuNDcsMy4xMSwxLjQsMSwyLjA3Ljc0LDMuNDJjLS4yNiwxLjMyLS45NSwyLjQ1LTIuMDcsMy4zOC0xLjExLjk0LTIuMzMsMS40LTMuNjUsMS40cy0yLjQyLS40Ni0zLjE1LTEuMzhaIi8+CiAgICA8cGF0aCBkPSJNMzQzLjk2LDE3My4yMWgyLjg1bDcuMDksMTguNjFoLTIuNjJsLTEuNy00Ljc3aC04LjM5bC0xLjcsNC43N2gtMi42Nmw3LjExLTE4LjYxWk0zNDUuMzgsMTc1LjY5bC0zLjQyLDkuMjZoNi44NGwtMy40My05LjI2WiIvPgogICAgPHBhdGggZD0iTTM3MS41NSwxNzMuMjFoNS42OGMyLjA5LDAsMy42Ni40Nyw0LjczLDEuNDJzMS42LDIuMzIsMS42LDQuMTQtLjUzLDMuMjItMS42LDQuMTZjLTEuMDcuOTQtMi42NCwxLjQxLTQuNzMsMS40MWgtMy4xN3Y3LjQ4aC0yLjUydi0xOC42MVpNMzc0LjA3LDE3NS4yOHY2Ljk5aDMuMTdjMS4xNywwLDIuMDgtLjMsMi43Mi0uOTEuNjQtLjYxLjk2LTEuNDcuOTYtMi41OXMtLjMyLTEuOTctLjk2LTIuNThjLS42NC0uNjEtMS41NS0uOTEtMi43Mi0uOTFoLTMuMTdaIi8+CiAgICA8cGF0aCBkPSJNMzkwLjM1LDE3My4yMWgyLjUydjcuNjNoOS4xNXYtNy42M2gyLjUydjE4LjYxaC0yLjUydi04Ljg2aC05LjE1djguODZoLTIuNTJ2LTE4LjYxWiIvPgogICAgPHBhdGggZD0iTTQyMC41MSwxNzIuODdjMi42MSwwLDQuNy44Nyw2LjI2LDIuNjIsMS41NiwxLjc1LDIuMzQsNC4wOSwyLjM0LDcuMDRzLS43OCw1LjI4LTIuMzQsNy4wMmMtMS41NiwxLjc1LTMuNjUsMi42Mi02LjI2LDIuNjJzLTQuNzEtLjg3LTYuMjgtMi42MmMtMS41Ny0xLjc1LTIuMzUtNC4wOS0yLjM1LTcuMDNzLjc4LTUuMjksMi4zNS03LjA0YzEuNTctMS43NSwzLjY2LTIuNjIsNi4yOC0yLjYyWk00MjAuNTEsMTc0LjkyYy0xLjgzLDAtMy4yOC42OC00LjM2LDIuMDQtMS4wOCwxLjM2LTEuNjEsMy4yMi0xLjYxLDUuNTdzLjU0LDQuMiwxLjYxLDUuNTZjMS4wOCwxLjM2LDIuNTMsMi4wNCw0LjM2LDIuMDRzMy4yOC0uNjgsNC4zNC0yLjA0YzEuMDctMS4zNiwxLjYtMy4yMiwxLjYtNS41NnMtLjUzLTQuMjEtMS42LTUuNTdjLTEuMDctMS4zNi0yLjUyLTIuMDQtNC4zNC0yLjA0WiIvPgogICAgPHBhdGggZD0iTTQzMy44NywxNzMuMjFoMTUuNzR2Mi4xMmgtNi42MXYxNi40OWgtMi41M3YtMTYuNDloLTYuNjF2LTIuMTJaIi8+CiAgICA8cGF0aCBkPSJNNDYzLjAxLDE3Mi44N2MyLjYxLDAsNC43Ljg3LDYuMjYsMi42MiwxLjU2LDEuNzUsMi4zNCw0LjA5LDIuMzQsNy4wNHMtLjc4LDUuMjgtMi4zNCw3LjAyYy0xLjU2LDEuNzUtMy42NSwyLjYyLTYuMjYsMi42MnMtNC43MS0uODctNi4yOC0yLjYyYy0xLjU3LTEuNzUtMi4zNS00LjA5LTIuMzUtNy4wM3MuNzgtNS4yOSwyLjM1LTcuMDRjMS41Ny0xLjc1LDMuNjYtMi42Miw2LjI4LTIuNjJaTTQ2My4wMSwxNzQuOTJjLTEuODMsMC0zLjI4LjY4LTQuMzYsMi4wNC0xLjA4LDEuMzYtMS42MSwzLjIyLTEuNjEsNS41N3MuNTQsNC4yLDEuNjEsNS41NmMxLjA4LDEuMzYsMi41MywyLjA0LDQuMzYsMi4wNHMzLjI4LS42OCw0LjM0LTIuMDRjMS4wNy0xLjM2LDEuNi0zLjIyLDEuNi01LjU2cy0uNTMtNC4yMS0xLjYtNS41N2MtMS4wNy0xLjM2LTIuNTItMi4wNC00LjM0LTIuMDRaIi8+CiAgICA8cGF0aCBkPSJNNDkxLjY0LDE4OS4xN3YtNWgtNC4xMXYtMi4wN2g2LjYxdjcuOTljLS45Ny42OS0yLjA0LDEuMjEtMy4yMiwxLjU2LTEuMTcuMzUtMi40Mi41My0zLjc1LjUzLTIuOTEsMC01LjE4LS44NS02LjgzLTIuNTUtMS42NC0xLjctMi40Ni00LjA3LTIuNDYtNy4xcy44Mi01LjQxLDIuNDYtNy4xMWMxLjY0LTEuNywzLjkyLTIuNTUsNi44My0yLjU1LDEuMjEsMCwyLjM3LjE1LDMuNDYuNDVzMi4xLjc0LDMuMDIsMS4zMnYyLjY4Yy0uOTMtLjc5LTEuOTItMS4zOC0yLjk3LTEuNzgtMS4wNS0uNC0yLjE1LS42LTMuMy0uNi0yLjI4LDAtMy45OS42NC01LjEzLDEuOTEtMS4xNCwxLjI3LTEuNzEsMy4xNy0xLjcxLDUuNjhzLjU3LDQuNCwxLjcxLDUuNjdjMS4xNCwxLjI3LDIuODUsMS45MSw1LjEzLDEuOTEuODksMCwxLjY4LS4wOCwyLjM4LS4yMy43LS4xNSwxLjMzLS4zOSwxLjg4LS43MloiLz4KICAgIDxwYXRoIGQ9Ik01MTAuOTcsMTgzLjFjLjU0LjE4LDEuMDcuNTcsMS41OCwxLjE3LjUxLjYsMS4wMiwxLjQyLDEuNTQsMi40N2wyLjU2LDUuMDloLTIuN2wtMi4zOC00Ljc3Yy0uNjEtMS4yNS0xLjIxLTIuMDctMS43OS0yLjQ4LS41OC0uNDEtMS4zNi0uNjEtMi4zNi0uNjFoLTIuNzR2Ny44N2gtMi41MnYtMTguNjFoNS42OGMyLjEzLDAsMy43Mi40NSw0Ljc2LDEuMzMsMS4wNS44OSwxLjU3LDIuMjMsMS41Nyw0LjAzLDAsMS4xNy0uMjcsMi4xNC0uODIsMi45MnMtMS4zNCwxLjMxLTIuMzcsMS42MVpNNTA0LjY2LDE3NS4yOHY2LjYxaDMuMTdjMS4yMSwwLDIuMTMtLjI4LDIuNzUtLjg0LjYyLS41Ni45My0xLjM5LjkzLTIuNDdzLS4zMS0xLjkxLS45My0yLjQ2Yy0uNjItLjU1LTEuNTQtLjgzLTIuNzUtLjgzaC0zLjE3WiIvPgogICAgPHBhdGggZD0iTTUyOC4wOCwxNzMuMjFoMi44NWw3LjA5LDE4LjYxaC0yLjYybC0xLjctNC43N2gtOC4zOWwtMS43LDQuNzdoLTIuNjZsNy4xMS0xOC42MVpNNTI5LjUxLDE3NS42OWwtMy40Miw5LjI2aDYuODRsLTMuNDMtOS4yNloiLz4KICAgIDxwYXRoIGQ9Ik01NDQuMTUsMTczLjIxaDUuNjhjMi4wOSwwLDMuNjYuNDcsNC43MywxLjQyczEuNiwyLjMyLDEuNiw0LjE0LS41MywzLjIyLTEuNiw0LjE2Yy0xLjA3Ljk0LTIuNjQsMS40MS00LjczLDEuNDFoLTMuMTd2Ny40OGgtMi41MnYtMTguNjFaTTU0Ni42NywxNzUuMjh2Ni45OWgzLjE3YzEuMTcsMCwyLjA4LS4zLDIuNzItLjkxLjY0LS42MS45Ni0xLjQ3Ljk2LTIuNTlzLS4zMi0xLjk3LS45Ni0yLjU4Yy0uNjQtLjYxLTEuNTUtLjkxLTIuNzItLjkxaC0zLjE3WiIvPgogICAgPHBhdGggZD0iTTU2Mi45NSwxNzMuMjFoMi41MnY3LjYzaDkuMTV2LTcuNjNoMi41MnYxOC42MWgtMi41MnYtOC44NmgtOS4xNXY4Ljg2aC0yLjUydi0xOC42MVoiLz4KICAgIDxwYXRoIGQ9Ik01ODUuNTUsMTczLjIxaDExLjc3djIuMTJoLTkuMjV2NS41MWg4Ljg2djIuMTJoLTguODZ2Ni43NGg5LjQ3djIuMTJoLTExLjk5di0xOC42MVoiLz4KICAgIDxwYXRoIGQ9Ik02MTMuOTIsMTgzLjFjLjU0LjE4LDEuMDcuNTcsMS41OCwxLjE3LjUxLjYsMS4wMiwxLjQyLDEuNTQsMi40N2wyLjU2LDUuMDloLTIuN2wtMi4zOC00Ljc3Yy0uNjEtMS4yNS0xLjIxLTIuMDctMS43OS0yLjQ4LS41OC0uNDEtMS4zNi0uNjEtMi4zNi0uNjFoLTIuNzR2Ny44N2gtMi41MnYtMTguNjFoNS42OGMyLjEzLDAsMy43Mi40NSw0Ljc2LDEuMzMsMS4wNS44OSwxLjU3LDIuMjMsMS41Nyw0LjAzLDAsMS4xNy0uMjcsMi4xNC0uODIsMi45MnMtMS4zNCwxLjMxLTIuMzcsMS42MVpNNjA3LjYxLDE3NS4yOHY2LjYxaDMuMTdjMS4yMSwwLDIuMTMtLjI4LDIuNzUtLjg0LjYyLS41Ni45My0xLjM5LjkzLTIuNDdzLS4zMS0xLjkxLS45My0yLjQ2Yy0uNjItLjU1LTEuNTQtLjgzLTIuNzUtLjgzaC0zLjE3WiIvPgogICAgPHBhdGggZD0iTTY1MS42OSwxNzQuNjR2Mi42NmMtLjg1LS43OS0xLjc1LTEuMzgtMi43MS0xLjc3cy0xLjk4LS41OS0zLjA2LS41OWMtMi4xMywwLTMuNzYuNjUtNC44OSwxLjk1cy0xLjcsMy4xOC0xLjcsNS42NC41Nyw0LjMzLDEuNyw1LjYzYzEuMTMsMS4zLDIuNzYsMS45NSw0Ljg5LDEuOTUsMS4wOCwwLDIuMS0uMTksMy4wNi0uNTlzMS44Ni0uOTgsMi43MS0xLjc3djIuNjNjLS44OC42LTEuODEsMS4wNS0yLjgsMS4zNXMtMi4wMy40NS0zLjEyLjQ1Yy0yLjgyLDAtNS4wNC0uODYtNi42Ni0yLjU5LTEuNjItMS43Mi0yLjQzLTQuMDgtMi40My03LjA2cy44MS01LjM1LDIuNDMtNy4wN2MxLjYyLTEuNzIsMy44NC0yLjU5LDYuNjYtMi41OSwxLjExLDAsMi4xNi4xNSwzLjE1LjQ0czEuOTEuNzQsMi43NywxLjMzWiIvPgogICAgPHBhdGggZD0iTTY2Ni41NCwxNzIuODdjMi42MSwwLDQuNy44Nyw2LjI2LDIuNjIsMS41NiwxLjc1LDIuMzQsNC4wOSwyLjM0LDcuMDRzLS43OCw1LjI4LTIuMzQsNy4wMmMtMS41NiwxLjc1LTMuNjUsMi42Mi02LjI2LDIuNjJzLTQuNzEtLjg3LTYuMjgtMi42MmMtMS41Ny0xLjc1LTIuMzUtNC4wOS0yLjM1LTcuMDNzLjc4LTUuMjksMi4zNS03LjA0YzEuNTctMS43NSwzLjY2LTIuNjIsNi4yOC0yLjYyWk02NjYuNTQsMTc0LjkyYy0xLjgzLDAtMy4yOC42OC00LjM2LDIuMDQtMS4wOCwxLjM2LTEuNjEsMy4yMi0xLjYxLDUuNTdzLjU0LDQuMiwxLjYxLDUuNTZjMS4wOCwxLjM2LDIuNTMsMi4wNCw0LjM2LDIuMDRzMy4yOC0uNjgsNC4zNC0yLjA0YzEuMDctMS4zNiwxLjYtMy4yMiwxLjYtNS41NnMtLjUzLTQuMjEtMS42LTUuNTdjLTEuMDctMS4zNi0yLjUyLTIuMDQtNC4zNC0yLjA0WiIvPgogICAgPHBhdGggZD0iTTY4Mi40OSwxNzMuMjFoMi41MnYxNi40OWg5LjA2djIuMTJoLTExLjU4di0xOC42MVoiLz4KICAgIDxwYXRoIGQ9Ik03MDAuMTIsMTczLjIxaDIuNTJ2MTYuNDloOS4wNnYyLjEyaC0xMS41OHYtMTguNjFaIi8+CiAgICA8cGF0aCBkPSJNNzE3Ljc0LDE3My4yMWgxMS43N3YyLjEyaC05LjI1djUuNTFoOC44NnYyLjEyaC04Ljg2djYuNzRoOS40N3YyLjEyaC0xMS45OXYtMTguNjFaIi8+CiAgICA8cGF0aCBkPSJNNzUxLjIxLDE3NC42NHYyLjY2Yy0uODUtLjc5LTEuNzUtMS4zOC0yLjcxLTEuNzdzLTEuOTgtLjU5LTMuMDYtLjU5Yy0yLjEzLDAtMy43Ni42NS00Ljg5LDEuOTUtMS4xMywxLjMtMS43LDMuMTgtMS43LDUuNjRzLjU3LDQuMzMsMS43LDUuNjNjMS4xMywxLjMsMi43NiwxLjk1LDQuODksMS45NSwxLjA4LDAsMi4xLS4xOSwzLjA2LS41OXMxLjg2LS45OCwyLjcxLTEuNzd2Mi42M2MtLjg4LjYtMS44MSwxLjA1LTIuOCwxLjM1cy0yLjAzLjQ1LTMuMTIuNDVjLTIuODIsMC01LjA0LS44Ni02LjY2LTIuNTktMS42Mi0xLjcyLTIuNDMtNC4wOC0yLjQzLTcuMDZzLjgxLTUuMzUsMi40My03LjA3YzEuNjItMS43MiwzLjg0LTIuNTksNi42Ni0yLjU5LDEuMTEsMCwyLjE2LjE1LDMuMTUuNDRzMS45MS43NCwyLjc3LDEuMzNaIi8+CiAgICA8cGF0aCBkPSJNNzU1LjkzLDE3My4yMWgxNS43NHYyLjEyaC02LjYxdjE2LjQ5aC0yLjUzdi0xNi40OWgtNi42MXYtMi4xMloiLz4KICAgIDxwYXRoIGQ9Ik03NzcuNTEsMTczLjIxaDIuNTJ2MTguNjFoLTIuNTJ2LTE4LjYxWiIvPgogICAgPHBhdGggZD0iTTc5My4yNCwxOTEuODJsLTcuMTEtMTguNjFoMi42M2w1LjksMTUuNjcsNS45MS0xNS42N2gyLjYybC03LjA5LDE4LjYxaC0yLjg1WiIvPgogICAgPHBhdGggZD0iTTgwOS4zMSwxNzMuMjFoMTEuNzd2Mi4xMmgtOS4yNXY1LjUxaDguODZ2Mi4xMmgtOC44NnY2Ljc0aDkuNDd2Mi4xMmgtMTEuOTl2LTE4LjYxWiIvPgogIDwvZz4KICA8Zz4KICAgIDxnPgogICAgICA8cG9seWdvbiBwb2ludHM9IjU4LjkgNzYuOTggNTguNjkgNTAuMDMgODUuNjQgNDkuODEgODUuNjYgNTIuMjEgNjEuMTEgNTIuNDEgNjEuMzEgNzYuOTYgNTguOSA3Ni45OCIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjIyMy42OSA3NS42NSAyMjMuNSA1MS4xMSAxOTguOTUgNTEuMyAxOTguOTMgNDguOSAyMjUuODggNDguNjkgMjI2LjA5IDc1LjYzIDIyMy42OSA3NS42NSIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjYwLjAzIDIxNy4yMiA1OS44MSAxOTAuMjcgNjIuMjIgMTkwLjI1IDYyLjQxIDIxNC44IDg2Ljk2IDIxNC42IDg2Ljk4IDIxNyA2MC4wMyAyMTcuMjIiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIyMDAuMjcgMjE2LjA5IDIwMC4yNSAyMTMuNjkgMjI0LjggMjEzLjQ5IDIyNC42IDE4OC45NCAyMjcgMTg4LjkzIDIyNy4yMiAyMTUuODcgMjAwLjI3IDIxNi4wOSIvPgogICAgPC9nPgogICAgPGc+CiAgICAgIDxwYXRoIGQ9Ik04Ni44MiwxNjMuMTVsMTEuNTYtNjIuMDgtNy41Mi4wNi44Mi00LjU0LDE1LjM5LS4xMi01LjQxLDI5LjJjMi4wMy0zLjA5LDQuMzQtNS40NCw2Ljk1LTcuMDIsMi42MS0xLjU5LDUuNDUtMi40LDguNTMtMi40Miw1LjAyLS4wNCw4LjQzLDEuMzcsMTAuMjUsNC4yNCwxLjEzLDEuNzMsMS43LDQuMDUsMS43Miw2Ljk2LjAyLDEuOTEtLjIxLDQuMDgtLjY3LDYuNWwtNC41NSwyNC40LDcuMDEtLjA2LS44Miw0LjU0LTE0LjkyLjEyLDQuOTItMjYuNDZjLjU1LTIuOTQuODEtNS4zOS43OS03LjM2LS4wMS0xLjc0LS4yNS0zLjA4LS43Mi00LjAxLS45Ni0yLjA0LTMuMTctMy4wNS02LjY1LTMuMDMtMy42NS4wMy02LjY4LDEuMzgtOS4wOSw0LjA1LTIuNDIsMi42Ny00LjA5LDYuNTUtNS4wMiwxMS42MmwtNC43MSwyNS4zNS03Ljg3LjA2WiIvPgogICAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTgyLjEyLDE0OC43NWMtMi4wMSw0Ljg2LTQuODQsOC41OC04LjQ4LDExLjE0LTMuNjQsMi41Ny03Ljk3LDMuODctMTIuOTksMy45MS02LjYxLjA1LTExLjUyLTIuMDktMTQuNzEtNi40Mi0yLjIyLTMuMDMtMy4zNS02Ljc0LTMuMzgtMTEuMTMtLjAyLTEuOTcuMTgtNC4wNi41OS02LjI5LDEuMzctNy4yOCw0LjQ2LTEzLjExLDkuMjgtMTcuNDksNC44Mi00LjM4LDEwLjU0LTYuNjEsMTcuMTUtNi42NiwyLjg4LS4wMiw1LjY4LjI5LDguNDEuOTQsMi43My42NSw1LjM5LDEuNjUsOCwyLjk5bC0yLjEzLDExLjY0LTQuNTcuMDRjMC0uNCwwLS43NywwLTEuMTEtLjAzLTMuNDItLjc5LTUuOTUtMi4yOC03LjU5LTEuNjctMS44MS00LjM3LTIuNy04LjEtMi42Ny00LjI1LjAzLTcuNzYsMS43MS0xMC41NCw1LjAyLTIuNzgsMy4zMS00Ljc5LDguMjUtNi4wMiwxNC44Mi0uNTUsMy0uODEsNS42Ni0uNzksOCwuMDIsMi43NC40NCw1LDEuMjUsNi43OSwxLjU0LDMuMjksNC40NCw0LjkyLDguNzIsNC44OSwzLjM5LS4wMyw2LjI2LS45Myw4LjYxLTIuNzIsMi4zNS0xLjc5LDQuMjQtNC40Nyw1LjY2LTguMDRsNi4zMy0uMDVaIi8+CiAgICAgIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xOTcuMDcsMTYxLjg2Yy0uODgtMS4wOS0xLjE3LTIuNDMtLjg3LTQuMDMuMy0xLjYsMS4xLTIuOTYsMi4zOC00LjA4LDEuMjktMS4xMiwyLjc0LTEuNjksNC4zNy0xLjcsMS41Ny0uMDEsMi44LjUzLDMuNzEsMS42NC45MSwxLjEsMS4yMSwyLjQ2LjkxLDQuMDUtLjMsMS41Ny0xLjExLDIuOTItMi40Myw0LjA0LTEuMzIsMS4xMi0yLjc2LDEuNjktNC4zMywxLjctMS42Mi4wMS0yLjg4LS41My0zLjc1LTEuNjJaIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=" alt="The Headshot Club" /></div>
+
+<div class="deck" id="deck">
+
+  <!-- 1 — COVER -->
+  <section class="slide active cover">
+    <img class="seal-mark" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTAuNTIgNTA1LjQ5Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuNS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMTQxKSAgLS0+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5zdDAgewogICAgICAgIGZpbGw6ICNhODU3MmM7CiAgICAgIH0KCiAgICAgIC5zdDEgewogICAgICAgIGZpbGw6ICMxYTFhMWE7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwb2x5Z29uIGNsYXNzPSJzdDEiIHBvaW50cz0iNzAuODYgMTI5Ljk0IDcwLjM5IDcwLjgxIDEyOS41MSA3MC4zNCAxMjkuNTUgNzUuNjEgNzUuNyA3Ni4wNCA3Ni4xMyAxMjkuOSA3MC44NiAxMjkuOTQiLz4KICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjQzMi40IDEyNy4wNCA0MzEuOTcgNzMuMTggMzc4LjExIDczLjYxIDM3OC4wNyA2OC4zNSA0MzcuMTkgNjcuODcgNDM3LjY3IDEyNyA0MzIuNCAxMjcuMDQiLz4KICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjczLjMzIDQzNy42MiA3Mi44NiAzNzguNSA3OC4xMiAzNzguNDYgNzguNTYgNDMyLjMxIDEzMi40MiA0MzEuODggMTMyLjQ2IDQzNy4xNSA3My4zMyA0MzcuNjIiLz4KICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjM4MS4wMSA0MzUuMTUgMzgwLjk3IDQyOS44OCA0MzQuODMgNDI5LjQ1IDQzNC4zOSAzNzUuNiA0MzkuNjYgMzc1LjU1IDQ0MC4xNCA0MzQuNjggMzgxLjAxIDQzNS4xNSIvPgogIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xMjQuMiwzMTlsMjUuMzUtMTM2LjItMTYuNTEuMTMsMS44LTkuOTUsMzMuNzYtLjI3LTExLjg2LDY0LjA2YzQuNDUtNi43OSw5LjUzLTExLjkzLDE1LjI2LTE1LjQxLDUuNzItMy40OCwxMS45Ni01LjI2LDE4LjcxLTUuMzEsMTEtLjA5LDE4LjUsMy4wMSwyMi40OSw5LjI5LDIuNDcsMy44LDMuNzMsOC44OCwzLjc4LDE1LjI2LjAzLDQuMTktLjQ2LDguOTUtMS40OCwxNC4yN2wtOS45OCw1My41NCwxNS4zOC0uMTItMS44LDkuOTYtMzIuNzMuMjYsMTAuNzktNTguMDVjMS4yLTYuNDUsMS43OC0xMS44MywxLjc0LTE2LjE1LS4wMy0zLjgxLS41Ni02Ljc1LTEuNTctOC44LTIuMS00LjQ5LTYuOTYtNi43LTE0LjU5LTYuNjQtOCwuMDYtMTQuNjUsMy4wMy0xOS45NSw4Ljg5LTUuMyw1Ljg2LTguOTcsMTQuMzYtMTEsMjUuNWwtMTAuMzQsNTUuNjEtMTcuMjYuMTRaIi8+CiAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTMzMy4yOCwyODcuNGMtNC40MiwxMC42Ny0xMC42MiwxOC44Mi0xOC42MSwyNC40NC03Ljk5LDUuNjMtMTcuNDksOC40OS0yOC40OSw4LjU3LTE0LjUxLjEyLTI1LjI3LTQuNTgtMzIuMjgtMTQuMDktNC44Ny02LjY1LTcuMzQtMTQuNzktNy40Mi0yNC40Mi0uMDQtNC4zMS40LTguOTEsMS4zLTEzLjgsMy0xNS45Nyw5Ljc5LTI4Ljc2LDIwLjM3LTM4LjM4LDEwLjU4LTkuNjIsMjMuMTMtMTQuNDksMzcuNjMtMTQuNjEsNi4zMi0uMDUsMTIuNDYuNjQsMTguNDUsMi4wNiw1Ljk4LDEuNDIsMTEuODMsMy42MSwxNy41NCw2LjU3bC00LjY3LDI1LjU1LTEwLjA0LjA4YzAtLjg3LS4wMS0xLjY5LS4wMi0yLjQ0LS4wNi03LjUtMS43My0xMy4wNS01LjAxLTE2LjY1LTMuNjYtMy45Ny05LjU5LTUuOTItMTcuNzgtNS44Ni05LjMyLjA3LTE3LjAyLDMuNzUtMjMuMTIsMTEuMDItNi4xLDcuMjctMTAuNSwxOC4xMS0xMy4yLDMyLjUxLTEuMiw2LjU3LTEuNzgsMTIuNDMtMS43MywxNy41NS4wNSw2LC45NiwxMC45NywyLjc0LDE0Ljg5LDMuMzcsNy4yMyw5Ljc1LDEwLjgsMTkuMTMsMTAuNzMsNy40NC0uMDYsMTMuNzQtMi4wNSwxOC45LTUuOTcsNS4xNi0zLjkyLDkuMy05LjgsMTIuNDMtMTcuNjRsMTMuODgtLjExWiIvPgogIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNjYuMSwzMTYuMTZjLTEuOTMtMi4zOS0yLjU2LTUuMzQtMS45LTguODUuNjYtMy41MSwyLjQtNi40OSw1LjIzLTguOTUsMi44My0yLjQ2LDYuMDItMy43MSw5LjU5LTMuNzQsMy40NC0uMDMsNi4xNSwxLjE3LDguMTQsMy41OSwxLjk5LDIuNDIsMi42NSw1LjM5LDIsOC45LS42NiwzLjQ0LTIuNDQsNi40LTUuMzIsOC44Ni0yLjg5LDIuNDYtNi4wNSwzLjcxLTkuNDksMy43NC0zLjU2LjAzLTYuMzEtMS4xNi04LjIzLTMuNTRaIi8+Cjwvc3ZnPg==" alt="The Headshot Club" />
+    <div class="kicker">A private invitation</div>
+    <h1>You're invited to join <em>The Headshot Club.</em></h1>
+    <p class="lede">A small collective of photographers shooting beautiful, professional headshots, without the overhead of running it all yourself. Here's how it works, what you'd earn, and what happens next.</p>
+    <p class="tiny">Takes about 3 minutes &middot; tap <b>Next</b> to begin</p>
+  </section>
+
+  <!-- 2 — WHAT IS THC -->
+  <section class="slide">
+    <div class="kicker">What it is</div>
+    <h2>A collective, not a job.</h2>
+    <p class="lede">The Headshot Club books professional headshot sessions by appointment. Clients choose a package and a time; a photographer from the roster shows up and shoots it. The club runs everything around the shoot, so you can focus on the part you love: being behind the camera.</p>
+    <div class="cols" style="margin-top:26px">
+      <div class="panel panel--lead">
+        <span class="panel-tag">The idea</span>
+        <p>You stay independent. You take the shoots that fit your schedule, do great work in the studio, and get paid a clear, fixed cut per session, no chasing clients, no invoicing, no editing backlog.</p>
+      </div>
+      <div class="panel panel--lead">
+        <span class="panel-tag">The vibe</span>
+        <p>Warm, professional, and well-run. We protect your time and your craft. A friendly client experience and consistent quality are what keep the collective booked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 — PROVIDE vs BRING -->
+  <section class="slide">
+    <div class="kicker">How it works</div>
+    <h2>We handle everything. You just shoot.</h2>
+    <div class="cols">
+      <div class="panel--accent panel">
+        <span class="panel-tag">The club provides</span>
+        <ul>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-9"/></svg>All client communication & scheduling</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-9"/></svg>Professional camera equipment</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-9"/></svg>Lighting equipment & setups</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-9"/></svg>The studio & location</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-9"/></svg>All editing & final delivery</li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-9"/></svg>Payment & the booking system</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="panel-tag">You bring</span>
+        <ul>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"/></svg><div>Show up to the studio on time</div></li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"/></svg><div>Warm, professional communication with the client</div></li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"/></svg><div>Know Capture One <span class="sub">(we'll teach you at orientation if you don't yet)</span></div></li>
+          <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"/></svg><div>Follow the lighting protocol for the shoot type you're assigned</div></li>
+        </ul>
+      </div>
+    </div>
+    <p class="tiny">That's the whole deal. Everything operational is on us.</p>
+  </section>
+
+  <!-- 4 — PAYOUTS -->
+  <section class="slide">
+    <div class="kicker">The payout &middot; 100% transparent</div>
+    <h2>What you keep, per session.</h2>
+    <p class="sub" style="margin-top:6px">Every package price is public on our website. Here's exactly how each one splits, your cut is yours, the studio's cut covers all the gear, editing, studio, and client work above.</p>
+    <div class="pay-grid">
+      <div class="pay-card">
+        <h3>The Quick Refresh</h3>
+        <div class="full">Full session price <b>$250</b></div>
+        <div class="split">
+          <div class="cell cell--you"><span class="amt">$100</span><span class="tag">You keep</span></div>
+          <div class="cell cell--studio"><span class="amt">$150</span><span class="tag">Studio</span></div>
+        </div>
+      </div>
+      <div class="pay-card">
+        <h3>The Casting</h3>
+        <div class="full">Full session price <b>$350</b></div>
+        <div class="split">
+          <div class="cell cell--you"><span class="amt">$150</span><span class="tag">You keep</span></div>
+          <div class="cell cell--studio"><span class="amt">$200</span><span class="tag">Studio</span></div>
+        </div>
+      </div>
+      <div class="pay-card">
+        <h3>The Feature</h3>
+        <div class="full">Full session price <b>$450</b></div>
+        <div class="split">
+          <div class="cell cell--you"><span class="amt">$200</span><span class="tag">You keep</span></div>
+          <div class="cell cell--studio"><span class="amt">$250</span><span class="tag">Studio</span></div>
+        </div>
+      </div>
+      <div class="pay-card">
+        <h3>The Branding <span class="sub" style="font-size:12px">&middot; senior tier</span></h3>
+        <div class="full">Full session price <b>$650</b></div>
+        <div class="split">
+          <div class="cell cell--you"><span class="amt">$300</span><span class="tag">You keep</span></div>
+          <div class="cell cell--studio"><span class="amt">$350</span><span class="tag">Studio</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="pay-note"><b>Why the split?</b> The studio's portion pays for everything you don't have to think about, the equipment, the editing, the studio space, the client communication, and the booking system. You walk in, shoot, and walk out with your cut.</p>
+  </section>
+
+  <!-- 5 — ASSIGNMENT -->
+  <section class="slide">
+    <div class="kicker">Getting shoots</div>
+    <h2>How shoots are assigned.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num num--alt">1</div>
+        <div>
+          <span class="phase-flag">First few months &middot; while we build the roster</span>
+          <h3>We ask first, always.</h3>
+          <p>For each shoot, we check your availability ahead of time. You connect your calendar and block any dates you don't want to be considered for. You are <b>never</b> assigned a shoot you haven't accepted, if it doesn't work, it simply passes to someone else.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <span class="phase-flag">Once everyone is onboarded</span>
+          <h3>First available takes it.</h3>
+          <p>After the full roster is in place, new shoots go out to the group and the first available photographer claims it. Keeping your blocked dates current is all you need to do, you'll only ever see shoots you're free for.</p>
+        </div>
+      </div>
+    </div>
+    <p class="tiny">Connecting your calendar and blocking your unavailable dates is required, it's what keeps assignments fair and stress-free.</p>
+  </section>
+
+  <!-- 6 — ORIENTATION -->
+  <section class="slide">
+    <div class="kicker">If you're in</div>
+    <h2>Headshot Day &amp; orientation.</h2>
+    <p class="sub" style="margin-top:6px">Accept below and you'll be invited to an in-person orientation. It's relaxed, about four hours, with snacks and drinks. You officially join the roster once you've attended.</p>
+    <div class="ori-grid">
+      <ul class="ori-list">
+        <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h14M3 7v9a1 1 0 001 1h12a1 1 0 001-1V7M6 4v3M14 4v3"/></svg><div><b>We shoot your headshots.</b> You leave with fresh professional images of yourself.</div></li>
+        <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="8" r="3.2"/><path d="M4 17c0-3 2.7-5 6-5s6 2 6 5"/></svg><div><b>We create content together</b> for the website and social media.</div></li>
+        <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="14" height="10" rx="1"/><path d="M7 17h6"/></svg><div><b>A short training session:</b> how Capture One works, how to manage the client, and the lighting protocols.</div></li>
+        <li><svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3l2 4 4 .5-3 3 .7 4L10 13l-3.7 1.5.7-4-3-3 4-.5z"/></svg><div><b>Snacks, drinks, and good company.</b> Meet the rest of the collective.</div></li>
+      </ul>
+      <div class="cal">
+        <div class="cal-h">June 2026</div>
+        <table>
+          <thead><tr><th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr></thead>
+          <tbody>
+            <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+            <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+            <tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+            <tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td class="hl"><span>27</span></td></tr>
+            <tr><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+        <div class="cal-cap">Tentative: <b>Saturday, June 27</b> &middot; <b>9:00 AM&ndash;1:00 PM</b><br/>Tell us below if another day works better.</div>
+      </div>
+      <div class="where">
+        <svg class="ic" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 18s6-5.3 6-10a6 6 0 10-12 0c0 4.7 6 10 6 10z"/><circle cx="10" cy="8" r="2.2"/></svg>
+        <div>
+          <b>Where</b><br/>
+          The Headshot Club studio<br/>
+          <span class="addr-line">10018 Spanish Isles Blvd, Ste 16<br/>Boca Raton, FL 33498</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 — ACCEPT + FORM -->
+  <section class="slide accept-wrap">
+    <div id="acceptIntro">
+      <div class="kicker">Your move</div>
+      <h2>Ready to join the collective?</h2>
+      <p class="lede" style="margin-left:auto;margin-right:auto;text-align:center">Tap below and tell us your availability. We'll follow up with your orientation details. No commitment until after Headshot Day.</p>
+      <div style="margin-top:26px">
+        <button class="btn btn--primary" id="imInBtn" style="font-size:16px; padding:15px 34px">I'm in →</button>
+      </div>
+      <p class="tiny">Prefer to think it over? That's okay too, this invitation will stay open.</p>
+    </div>
+
+    <form class="form-card hidden" id="joinForm" novalidate>
+      <h3 style="font-size:22px; margin-bottom:4px">Count me in.</h3>
+      <p class="sub" style="margin-bottom:20px">A few quick details so we can send your orientation invite.</p>
+
+      <div class="field">
+        <label>Full name <span class="req">*</span></label>
+        <input type="text" name="name" autocomplete="name" />
+        <div class="form-err" data-for="name">Please add your name.</div>
+      </div>
+      <div class="field">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="email" autocomplete="email" />
+        <div class="form-err" data-for="email">Please add a valid email.</div>
+      </div>
+      <div class="field">
+        <label>Phone <span class="req">*</span></label>
+        <input type="tel" name="phone" autocomplete="tel" />
+        <div class="form-err" data-for="phone">Please add a phone number.</div>
+      </div>
+      <div class="field">
+        <label>Instagram or portfolio link <span class="sub">(optional)</span></label>
+        <input type="text" name="portfolio" placeholder="@yourhandle or a link" />
+      </div>
+
+      <div class="field">
+        <label>Do you know Capture One? <span class="req">*</span></label>
+        <div class="choice">
+          <label><input type="radio" name="captureone" value="Yes, I use it" /> Yes, I use it</label>
+          <label><input type="radio" name="captureone" value="Not yet — happy to learn" /> Not yet, happy to learn</label>
+        </div>
+        <div class="form-err" data-for="captureone">Please pick one.</div>
+      </div>
+
+      <div class="field">
+        <label>Orientation, Saturday June 27, 9:00 AM&ndash;1:00 PM <span class="req">*</span></label>
+        <div class="choice">
+          <label><input type="radio" name="june27" value="Works for me" /> That works for me</label>
+          <label><input type="radio" name="june27" value="Suggest another date" /> I'd suggest another date</label>
+        </div>
+        <div class="form-err" data-for="june27">Please pick one.</div>
+        <div class="alt-date" id="altDate">
+          <label style="font-size:13px; font-weight:600; display:block; margin:4px 0 6px">What date(s) would work better?</label>
+          <input type="text" name="alt_date" placeholder="e.g. weekend of July 11, or any Sat in July" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>In general, when are you usually free to shoot? <span class="sub">(pick any)</span></label>
+        <div class="chips">
+          <label><input type="checkbox" name="avail" value="Weekday mornings" /> Weekday mornings</label>
+          <label><input type="checkbox" name="avail" value="Weekday afternoons" /> Weekday afternoons</label>
+          <label><input type="checkbox" name="avail" value="Weekday evenings" /> Weekday evenings</label>
+          <label><input type="checkbox" name="avail" value="Weekends" /> Weekends</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Anything you'd like us to know? <span class="sub">(optional)</span></label>
+        <textarea name="notes" placeholder="Questions, experience, gear you love, anything."></textarea>
+      </div>
+
+      <div class="config-warn" id="configWarn">Heads up: the form isn't connected to your Google Sheet yet. Add your link in the setup guide so responses get saved.</div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn--primary" id="submitBtn" style="font-size:15px; padding:14px 30px">Send it →</button>
+        <span class="sub" id="sendingMsg" style="display:none">Sending…</span>
+      </div>
+      <p class="privacy">Your details go straight to The Headshot Club and are used only to set up your spot. Nothing is shared.</p>
+    </form>
+
+    <div class="done" id="doneMsg">
+      <div class="check">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M4 12l5 5L20 6"/></svg>
+      </div>
+      <h2>You're on the list.</h2>
+      <p class="lede" style="margin-left:auto;margin-right:auto;text-align:center">Thank you, we've got your details. You'll hear from The Headshot Club soon with your orientation invite for Headshot Day. We can't wait to have you.</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="navbar">
+  <button class="btn btn--ghost" id="prevBtn">← Back</button>
+  <div class="dots" id="dots"></div>
+  <button class="btn btn--primary" id="nextBtn">Next →</button>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — paste your Google Apps Script Web App URL between the
+   quotes below (see the setup guide). Until you do, the form
+   will still work for testing but responses won't be saved.
+   ============================================================ */
+const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbzMC21_hKRpiynfFfdgWKqzmAcG4hQxZ9P_hyKya5Wh05HzAqSQybrZRsIr2H19gyGmog/exec";
+
+/* ---------- deck navigation ---------- */
+const slides = Array.from(document.querySelectorAll('.slide'));
+const dotsWrap = document.getElementById('dots');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const progFill = document.getElementById('progFill');
+let i = 0;
+
+slides.forEach((_, idx) => {
+  const d = document.createElement('button');
+  d.className = 'dot' + (idx === 0 ? ' on' : '');
+  d.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
+  d.addEventListener('click', () => go(idx));
+  dotsWrap.appendChild(d);
+});
+const dots = Array.from(dotsWrap.children);
+
+function go(n){
+  i = Math.max(0, Math.min(slides.length - 1, n));
+  slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+  dots.forEach((d, idx) => d.classList.toggle('on', idx === i));
+  prevBtn.style.visibility = i === 0 ? 'hidden' : 'visible';
+  nextBtn.textContent = i === slides.length - 1 ? 'Done' : 'Next →';
+  progFill.style.width = ((i) / (slides.length - 1) * 100) + '%';
+  window.scrollTo(0, 0);
+}
+prevBtn.addEventListener('click', () => go(i - 1));
+nextBtn.addEventListener('click', () => { if (i < slides.length - 1) go(i + 1); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') go(i + 1);
+  if (e.key === 'ArrowLeft') go(i - 1);
+});
+// touch swipe
+let tx = null;
+document.addEventListener('touchstart', e => tx = e.touches[0].clientX, {passive:true});
+document.addEventListener('touchend', e => {
+  if (tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 60){ dx < 0 ? go(i + 1) : go(i - 1); }
+  tx = null;
+});
+go(0);
+
+/* ---------- accept reveal ---------- */
+const imInBtn = document.getElementById('imInBtn');
+const joinForm = document.getElementById('joinForm');
+const acceptIntro = document.getElementById('acceptIntro');
+imInBtn.addEventListener('click', () => {
+  acceptIntro.style.display = 'none';
+  joinForm.classList.remove('hidden');
+  joinForm.scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+/* alt-date toggle */
+joinForm.addEventListener('change', e => {
+  if (e.target.name === 'june27'){
+    document.getElementById('altDate').classList.toggle('show', e.target.value === 'Suggest another date');
+  }
+});
+
+/* ---------- validation + submit ---------- */
+function showErr(name, on){
+  const el = joinForm.querySelector('.form-err[data-for="'+name+'"]');
+  if (el) el.style.display = on ? 'block' : 'none';
+}
+function val(name){
+  const f = joinForm.elements[name];
+  if (!f) return '';
+  if (f.length && f[0] && f[0].type === 'radio'){
+    const c = joinForm.querySelector('input[name="'+name+'"]:checked');
+    return c ? c.value : '';
+  }
+  return (f.value || '').trim();
+}
+function checkedValues(name){
+  return Array.from(joinForm.querySelectorAll('input[name="'+name+'"]:checked')).map(c => c.value).join(', ');
+}
+
+joinForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  const name = val('name'), email = val('email'), phone = val('phone');
+  const co = val('captureone'), j27 = val('june27');
+  let ok = true;
+  showErr('name', !name); if (!name) ok = false;
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  showErr('email', !emailOk); if (!emailOk) ok = false;
+  showErr('phone', !phone); if (!phone) ok = false;
+  showErr('captureone', !co); if (!co) ok = false;
+  showErr('june27', !j27); if (!j27) ok = false;
+  if (!ok){ joinForm.querySelector('.form-err[style*="block"]')?.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+
+  const payload = {
+    name, email, phone,
+    portfolio: val('portfolio'),
+    capture_one: co,
+    june27: j27,
+    alt_date: val('alt_date'),
+    availability: checkedValues('avail'),
+    notes: val('notes'),
+    submitted_at: new Date().toLocaleString()
+  };
+
+  const submitBtn = document.getElementById('submitBtn');
+  const sendingMsg = document.getElementById('sendingMsg');
+  submitBtn.disabled = true; sendingMsg.style.display = 'inline';
+
+  const notConfigured = !SHEET_ENDPOINT || SHEET_ENDPOINT.indexOf('PASTE_YOUR') === 0;
+  try {
+    if (!notConfigured){
+      await fetch(SHEET_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'text/plain;charset=utf-8'},
+        body: JSON.stringify(payload)
+      });
+    } else {
+      document.getElementById('configWarn').style.display = 'block';
+      console.warn('THC invite: SHEET_ENDPOINT not set — response not saved.', payload);
+    }
+  } catch (err){
+    console.warn('Submit error (response may still have been recorded):', err);
+  }
+
+  // Show success regardless (no-cors hides the response); the Sheet records it server-side.
+  joinForm.style.display = 'none';
+  document.getElementById('doneMsg').classList.add('show');
+  progFill.style.width = '100%';
+});
+</script>
+</body>
+</html>
